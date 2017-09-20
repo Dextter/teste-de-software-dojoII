@@ -1,5 +1,9 @@
 # teste-de-software-dojoII
 
+#Equipe: Hugo Pablo Tomas de Araujo e Ricardo Luiz
+         20152014040023               20152014040021
+
+
 ## Plano de teste - Sequência de números
 
 | Entrada             | Condição                            | Classes Válidas                  | Classes Inválidas             |
