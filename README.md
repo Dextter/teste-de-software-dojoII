@@ -46,25 +46,26 @@ A tecnologia utilizada para criação dos casos de teste será a linguagem de pr
 ### Caso de teste 1 - entrada do tipo String
 | Numero              | Entrada                             | Saida                            |
 | -------------       | -------------                       | -------------------------------- |
-| 1                   | "STRING"                            | true                             |
-| 2                   | 123                                 | fasle                            |
+| 1.1                   | "STRING"                            | true                             |
+| 1.2                   | 123                                 | fasle, exceptionEntradaInvalida()|
 
 ### Caso de teste 2 - total de caracteres inferioir a 256
-| Numero              | Entrada                             | Saida                            |
-| -------------       | -------------                       | -------------------------------- |
-| 1                   | "STRING"                            | true                             |
-| 2                   | palavraTesteTamanho(256)            | fasle                            |
+| Numero              | Entrada                             | Saida                             |
+| -------------       | -------------                       | ----------------------------------|
+| 2.1                   | "STRING"                            | true                              |
+| 2.2                   | palavraTesteTamanho(256)            | fasle, exceptionLimiteCaracteres()|
 
 ### Caso de teste 3 - impressão em digitos do caractere digitado
 | Numero              | Entrada                             | Saida                            |
 | -------------       | -------------                       | -------------------------------- |
-| 1                   | "S"                                 | 7777                             |
-| 2                   | "ST"                                | 77778                            |
+| 3.1                   | "S"                                 | 7777                             |
+| 3.2                   | "ST"                                | 77778                            |
+| 3.3                   | 123                                 | exceptionEntradaInvalida         |
 
 ### Caso de teste 4 - impressão do separador para caractere repetido
 | Numero              | Entrada                             | Saida                            |
 | -------------       | -------------                       | -------------------------------- |
-| 1                   | "S"                                 | 7777                             |
-| 2                   | "SS"                                | 7777_7777                        |
-
+| 4.1                   | "S"                                 | 7777                             |
+| 4.2                   | "SS"                                | 7777_7777                        |
+| 4.3                   | 123                                 | exceptionEntradaInvalida         |
 
