@@ -21,34 +21,41 @@ public class Entrada {
     List saida = new ArrayList<String>();
 
     //---------------------------TRATAMENTO DE ENTRADA--------------------------
-    //
+    //Recebe uma cadeia de caracteres e transforma em um array
+    //em seguida, destina o array para metodos de verificação, identificação e
+    //formatação
     public void lerEntrada() {
         Scanner sc = new Scanner(System.in);
         String entrada = sc.nextLine();
         String[] caracteres = entrada.split("");
         isString(caracteres);
         identificacaoDasLetras(caracteres);
-        StringBuilder builder = new StringBuilder();
-        System.out.println(saida);
+        formatarSaida();
+    }
+
+    //Formata a saida de modo a remover os colchetes e virguas da saida em array
+    public void formatarSaida(){
+        StringBuilder builder = new StringBuilder();        
         for (Object s : saida) {
             builder.append(s);
         }
         String saidaFinal = builder.toString();
         System.out.println(saidaFinal);
     }
-
-    //
+    
+    //Verifica se todos os caracteres do array são váldos
     public void isString(String[] entrada) {
         for (String caractere : entrada) {
             if (caractere instanceof String) {
                 continue;
             } else {
                 excecaoEntradaInvalida();
+                break;
             }
         }
     }
 
-    //
+    //Verifica os caracteres do array e salva em outro array os valores numéricos
     public void identificacaoDasLetras(String[] entrada) {
         isString(entrada);
         for (String entrada1 : entrada) {
@@ -298,11 +305,14 @@ public class Entrada {
         }
         tamanho++;
     }
-
+    
+    //Para o caso de repetição de tecla é adicionado um traço inferior para citar
+    //que a sequencia numeroa seguinte pertence a outro caractere
     public void addUnderscorre(List l, String c) {
         l.add("_" + c);
     }
 
+    //Metodo responsável por identificar qual foi o ultimo caractere manipulado
     public void setLast(String ultimo) {
         this.ultimo = ultimo;
     }
