@@ -39,7 +39,7 @@ A tecnologia utilizada para criação dos casos de teste será a linguagem de pr
 | Entrada             | Condição                            | Classes Válidas                     | Classes Inválidas                |
 | -------------       | -------------                       | --------------------------------    | ----------------                 |
 | String              | É do tipo String                    | isString(entrada) == true           | isString(entrada) == false       |
-|                     | Está no limide de caracteres        | entrada.size() < 256                | entrada.size() >= 256            |
+|                     | Está no limide de caracteres        | entrada.lenght < 256                | entrada.lenght >= 256            |
 | entrada.split("")   | Caractere digitado                  | entrada[0] == "A"                   | entrada[0] != "A"                |
 | caractere           | Caractere repetido                  | entrada.equals(ultimo)==caractere   | entrada.equals(ultimo)!=caractere|
 
