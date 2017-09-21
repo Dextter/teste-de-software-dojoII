@@ -36,35 +36,35 @@ A tecnologia utilizada para criação dos casos de teste será a linguagem de pr
 
 ## Plano de teste - Sequência de números
 
-| Entrada             | Condição                            | Classes Válidas                  | Classes Inválidas             |
-| -------------       | -------------                       | -------------------------------- | ----------------              |
-| String              | É do tipo String                    | isString(entrada) == true        | isString(entrada) == false    |
-|                     | Está no limide de caracteres        | entrada.size() < 256             | entrada.size() >= 256         |
-| entrada.split("")   | Caractere digitado                  | entrada[0] == "A"                | entrada[0] != "A"             |
-| caractere           | Caractere repetido                  | entrada.getLast() == caractere   | entrada.getLast() == caractere|
+| Entrada             | Condição                            | Classes Válidas                     | Classes Inválidas                |
+| -------------       | -------------                       | --------------------------------    | ----------------                 |
+| String              | É do tipo String                    | isString(entrada) == true           | isString(entrada) == false       |
+|                     | Está no limide de caracteres        | entrada.size() < 256                | entrada.size() >= 256            |
+| entrada.split("")   | Caractere digitado                  | entrada[0] == "A"                   | entrada[0] != "A"                |
+| caractere           | Caractere repetido                  | entrada.equals(ultimo)==caractere   | entrada.equals(ultimo)!=caractere|
 
 ### Caso de teste 1 - entrada do tipo String
-| Numero              | Entrada                             | Saida                            |
-| -------------       | -------------                       | -------------------------------- |
+| Numero                | Entrada                             | Saida                            |
+| -------------         | -------------                       | -------------------------------- |
 | 1.1                   | "STRING"                            | true                             |
 | 1.2                   | 123                                 | fasle, exceptionEntradaInvalida()|
 
 ### Caso de teste 2 - total de caracteres inferioir a 256
-| Numero              | Entrada                             | Saida                             |
-| -------------       | -------------                       | ----------------------------------|
+| Numero                | Entrada                             | Saida                             |
+| -------------         | -------------                       | ----------------------------------|
 | 2.1                   | "STRING"                            | true                              |
 | 2.2                   | palavraTesteTamanho(256)            | fasle, exceptionLimiteCaracteres()|
 
 ### Caso de teste 3 - impressão em digitos do caractere digitado
-| Numero              | Entrada                             | Saida                            |
-| -------------       | -------------                       | -------------------------------- |
+| Numero                | Entrada                             | Saida                            |
+| -------------         | -------------                       | -------------------------------- |
 | 3.1                   | "S"                                 | 7777                             |
 | 3.2                   | "ST"                                | 77778                            |
 | 3.3                   | 123                                 | exceptionEntradaInvalida         |
 
 ### Caso de teste 4 - impressão do separador para caractere repetido
-| Numero              | Entrada                             | Saida                            |
-| -------------       | -------------                       | -------------------------------- |
+| Numero                | Entrada                             | Saida                            |
+| -------------         | -------------                       | -------------------------------- |
 | 4.1                   | "S"                                 | 7777                             |
 | 4.2                   | "SS"                                | 7777_7777                        |
 | 4.3                   | 123                                 | exceptionEntradaInvalida         |
