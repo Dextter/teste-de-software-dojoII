@@ -38,34 +38,47 @@ A tecnologia utilizada para criação dos casos de teste será a linguagem de pr
 
 | Entrada             | Condição                            | Classes Válidas                     | Classes Inválidas                |
 | -------------       | -------------                       | --------------------------------    | ----------------                 |
-| String              | É do tipo String                    | isString(entrada) == true           | isString(entrada) == false       |
-|                     | Está no limide de caracteres        | entrada.lenght < 256                | entrada.lenght >= 256            |
-| entrada.split("")   | Caractere digitado                  | entrada[0] instanceof String        | ~(entrada[0] instanceof String)  |
-| caractere           | Caractere repetido                  | entrada.equals(ultimo)==caractere   | entrada.equals(ultimo)!=caractere|
+| String              | É do tipo String                    | (1) isString(entrada) == true           | isString(entrada) == false       |
+|                     | Está no limide de caracteres        | (2) entrada.lenght < 256                | entrada.lenght >= 256            |
+| entrada.split("")   | Caractere digitado                  | (3) entrada[0] instanceof String        | ~(entrada[0] instanceof String)  |
+| caractere           | Caractere repetido                  | (4) entrada.equals(ultimo)==caractere   | entrada.equals(ultimo)!=caractere|
 
 ### Caso de teste 1 - entrada do tipo String
 | Numero                | Entrada                             | Saida                            |
 | -------------         | -------------                       | -------------------------------- |
-| 1.1                   | "STRING"                            | true                             |
-| 1.2                   | 123                                 | fasle, exceptionEntradaInvalida()|
+| 1.1                   | (1) (3) "STRING"                            | true                             |
+| 1.2                   | (1) (3) 123                                 | fasle, exceptionEntradaInvalida()|
 
 ### Caso de teste 2 - total de caracteres inferioir a 256
 | Numero                | Entrada                             | Saida                             |
 | -------------         | -------------                       | ----------------------------------|
-| 2.1                   | "STRING"                            | true                              |
-| 2.2                   | palavraTesteTamanho(256)            | false, exceptionLimiteCaracteres()|
+| 2.1                   | (1) (3) "STRING"                            | true                              |
+| 2.2                   | (2) palavraTesteTamanho(256)            | false, exceptionLimiteCaracteres()|
 
 ### Caso de teste 3 - impressão em digitos do caractere digitado
 | Numero                | Entrada                             | Saida                            |
 | -------------         | -------------                       | -------------------------------- |
-| 3.1                   | "S"                                 | 7777                             |
-| 3.2                   | "ST"                                | 77778                            |
-| 3.3                   | 123                                 | exceptionEntradaInvalida         |
+| 3.1                   | (1) (3) "S"                                 | 7777                             |
+| 3.2                   | (1) (3) "ST"                                | 77778                            |
+| 3.3                   | (1) (3) 123                                 | exceptionEntradaInvalida         |
 
 ### Caso de teste 4 - impressão do separador para caractere repetido
 | Numero                | Entrada                             | Saida                            |
 | -------------         | -------------                       | -------------------------------- |
-| 4.1                   | "S"                                 | 7777                             |
-| 4.2                   | "SS"                                | 7777_7777                        |
-| 4.3                   | 123                                 | exceptionEntradaInvalida         |
+| 4.1                   | (1) (3) (4)"SS"                                | 7777_7777                        |
 
+## Excução
+Para executar o projeto siga a sugestão de tecnologias e clone/baixe o projeto e execute o arquivo de teste após abrir o projeto na IDE, este arquivo estará na pasta "test".
+
+### Ambiente: 
+Netbeans IDE
+
+### Linguagem:
+Java
+
+### SO:
+Linux (Ubuntu x.x)
+Windows 
+
+### Ferramenta de Testes:
+JUnit
