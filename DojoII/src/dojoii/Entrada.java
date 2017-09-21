@@ -1,48 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dojoii;
 
+import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 /**
  *
- * @author pablo
+ * @author pablo e ricardo
  */
 public class Entrada {
 
     private String entrada;
     private String ultimo = "";
     private int tamanho;
-    List saida = new ArrayList<String>();
+    private List saida = new ArrayList<String>();
 
     //---------------------------TRATAMENTO DE ENTRADA--------------------------
-    //Recebe uma cadeia de caracteres e transforma em um array
-    //em seguida, destina o array para metodos de verificação, identificação e
-    //formatação
+    /**
+      Recebe uma cadeia de caracteres e transforma em um array
+      em seguida, destina o array para metodos de verificação, identificação e
+      formatação
+    */
     public void lerEntrada() {
         Scanner sc = new Scanner(System.in);
         String entrada = sc.nextLine();
         String[] caracteres = entrada.split("");
+        
+        //chamada dos métodos de verificação
         isString(caracteres);
         identificacaoDasLetras(caracteres);
+        
+        if (verificarTamanho(caracteres)) {
+            exit(0);
+        }
+        
+        //exiir saida formatada
         formatarSaida();
     }
 
-    //Formata a saida de modo a remover os colchetes e virguas da saida em array
-    public void formatarSaida(){
-        StringBuilder builder = new StringBuilder();        
-        for (Object s : saida) {
-            builder.append(s);
-        }
-        String saidaFinal = builder.toString();
-        System.out.println(saidaFinal);
-    }
-    
     //Verifica se todos os caracteres do array são váldos
     public void isString(String[] entrada) {
         for (String caractere : entrada) {
@@ -50,7 +46,7 @@ public class Entrada {
                 continue;
             } else {
                 excecaoEntradaInvalida();
-                break;
+                exit(0);
             }
         }
     }
@@ -221,8 +217,8 @@ public class Entrada {
                     setLast("7");
                 }
             }
-            if ("S".equals(entrada1)) {                
-                if (!"7".equals(ultimo)) {                    
+            if ("S".equals(entrada1)) {
+                if (!"7".equals(ultimo)) {
                     saida.add("7777");
                     setLast("7");
                 } else {
@@ -305,16 +301,38 @@ public class Entrada {
         }
         tamanho++;
     }
-    
-    //Para o caso de repetição de tecla é adicionado um traço inferior para citar
-    //que a sequencia numeroa seguinte pertence a outro caractere
-    public void addUnderscorre(List l, String c) {
-        l.add("_" + c);
-    }
 
     //Metodo responsável por identificar qual foi o ultimo caractere manipulado
     public void setLast(String ultimo) {
         this.ultimo = ultimo;
+    }
+
+    //Metodo responsável por verificar o tamanho da entrada
+    public boolean verificarTamanho(String[] caracteres) {
+        if (caracteres.length >= 256) {
+            excecaoLimiteCaracteres();
+            return true;
+        }
+        return false;
+    }
+
+    //---------------------------TRATAMENTO DA SAIDA----------------------------
+    /**
+     * Para o caso de repetição de tecla é adicionado um traço inferior para citar
+     * que a sequencia numeroa seguinte pertence a outro caractere
+     */
+    public void addUnderscorre(List l, String c) {
+        l.add("_" + c);
+    }
+    
+    //Formata a saida de modo a remover os colchetes e virguas da saida em array
+    public void formatarSaida() {
+        StringBuilder builder = new StringBuilder();
+        for (Object s : saida) {
+            builder.append(s);
+        }
+        String saidaFinal = builder.toString();
+        System.out.println(saidaFinal);
     }
 
     //---------------------------EXCEÇÕES---------------------------------------
@@ -330,12 +348,22 @@ public class Entrada {
     }
 
     //---------------------------MISCELANEOUS-----------------------------------    
-    //Teste com uma palavra de tamanho indefinido que pode ser usada com tamanho 
-    //maior que 255 para lançar exceção de tamanho excedido
-    public void palavraTesteTamanho(int tamanho) {
-        String[] textoTexte = null;
-        for (int i = 0; i < tamanho; i++) {
+    /**
+     * Metodos de teste com uma palavra de tamanho indefinido que pode ser usada com tamanho 
+     * maior que 255 para lançar exceção de tamanho excedido
+    */
+    public String[] palavraTesteTamanho() {
+        String[] textoTexte = new String[260];
+        for (int i = 0; i <= 256; i++) {
             textoTexte[i] = "a";
         }
+        return textoTexte;
+    }
+
+    public void teste() {
+        if (verificarTamanho(palavraTesteTamanho())) {
+            exit(0);
+        }
+        formatarSaida();
     }
 }
