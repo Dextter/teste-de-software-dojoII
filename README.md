@@ -53,7 +53,7 @@ A tecnologia utilizada para criação dos casos de teste será a linguagem de pr
 | Numero                | Entrada                             | Saida                             |
 | -------------         | -------------                       | ----------------------------------|
 | 2.1                   | "STRING"                            | true                              |
-| 2.2                   | palavraTesteTamanho(256)            | fasle, exceptionLimiteCaracteres()|
+| 2.2                   | palavraTesteTamanho(256)            | false, exceptionLimiteCaracteres()|
 
 ### Caso de teste 3 - impressão em digitos do caractere digitado
 | Numero                | Entrada                             | Saida                            |
